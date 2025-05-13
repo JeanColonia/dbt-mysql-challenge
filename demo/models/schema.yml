@@ -1,3 +1,14 @@
 
 version: 2
 
+# Changing working with sources (currently using 'ref' keyword)
+# sources:
+#   - name: dbt-demo-db
+#     schema: dbt_demo_db
+#     tables:
+#       - name: customers
+#       - name: order_items
+#       - name: orders
+#       - name: products
+#       - name: web_events
+
