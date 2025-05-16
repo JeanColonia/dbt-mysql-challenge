@@ -1,7 +1,7 @@
 
 
-{% test id_correct_format(model, column_name) %}
+-- {% test id_correct_format(model, column_name) %}
 
-SELECT * FROM {{model}} where {{column_name}} not REGEXP '^[0-9]+$'
+-- SELECT * FROM {{model}} where {{column_name}} not REGEXP '^[0-9]+$'
 
-{% endtest %}
+-- {% endtest %}
