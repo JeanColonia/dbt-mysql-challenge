@@ -12,171 +12,35 @@ version: 2
 #       - name: products
 #       - name: web_events
 
-# models:
-#   - name: stg_customers
-#     description: "Cleaning customers data"
-#     columns:
-#       - name: customer_id
-#         description: "The primary key for this table"
-#         tests:
-#           - unique
-#           - not_null
-#           - id_correct_format:
-#               column_name: customer_id
-#       - name: first_name
-#         description: "customer first name"
-#         tests:
-#           - not_null
-#       - name: last_name
-#         description: "customer last name"
-#         tests:
-#           - not_null
-#       - name: city
-#         description: "customer city"
-#         tests:
-#           - not_null
-#       - name: state
-#         description: "customer state"
-#         tests:
-#           - not_null
-#       - name: country
-#         description: "customer country"
-#         tests:
-#           - not_null
-#   - name: stg_products
-#     columns:
-#       - name: product_id
-#         description: "product id primary key for this table"
-#         tests:
-#           - not_null
-#           - unique
-#           - id_correct_format:
-#               column_name: product_id
-#       - name: category
-#         description: "product category name"
-#         tests:
-#           - not_null
-#           - accepted_values:
-#               values: ['Clothing','Books','Stationery','Electronics','Appliances','Footwear','Accessories']
-#       - name: price
-#         description: "product price"
-#         tests:
-#           - not_null
-#           - value_less_than_zero:
-#               column_name: price
-#       - name: description
-#         description: "product description"
-#         tests:
-#           - not_null
-#       - name: color
-#         description: "product color"
-#         tests:
-#           - not_null
-#       - name: stock_quantity
-#         description: "product stock stock_quantity"
-#         tests:
-#           - not_null
-#           - value_less_than_zero:
-#               column_name: 
-#       - name: last_updated
-#         description: "last updated date"
-#         tests:
-#           - date_later_than_today:
-#               column_name: last_updated
-#   - name: stg_sales
-#     columns:
-#       - name: sale_id
-#         description: "sale id primary key for this table"
-#         tests:
-#           - not_null
-#           - unique
-#           - id_correct_format:
-#               column_name: sale_id
-#       - name: customer_id
-#         description: "customer id from table customer -> foreign key for this table"
-#         tests:
-#           - not_null
-#       - name: product_id
-#         description: "product id from table product -> foreign key for this table"
-#         tests:
-#           - not_null
-#       - name: quantity
-#         description: "product quantity"
-#         tests:
-#           - not_null
-#           - value_less_than_zero:
-#               column_name: quantity
-#       - name: sale_date
-#         description: "registered sale date"
-#         tests:
-#           - not_null
-#           - date_later_than_today:
-#               column_name: sale_date
-#       - name: total_amount
-#         description: "total amount of order"
-#         tests:
-#           - not_null
-#           - value_less_than_zero:
-#               column_name: total_amount
-#   - name: mart_purchases_by_customer
-#     columns:
-#       - name: customer_id
-#         description: "purchase customer id"
-#         tests:
-#           - not_null
-#           - unique
-#           - id_correct_format:
-#               column_name: customer_id
-#       - name: customer_name
-#         description: "purchase customer name"
-#         tests:
-#           - not_null
-#       - name: total_purchases
-#         description: "total purchases"
-#         tests:
-#           - not_null
-#           - value_less_than_zero:
-#               column_name: total_purchases
-#       - name: total_quantity
-#         description: "total quantity of products"
-#         tests:
-#           - not_null
-#           - value_less_than_zero:
-#               column_name: total_quantity
-#       - name: total_spent
-#         description: "customer total spent"
-#         tests:
-#           - not_null
-#           - value_less_than_zero:
-#               column_name: total_spent
-#       - name: country
-#         description: "customer country"
-#         tests:
-#           - not_null
-#   - name: mart_total_revenue
-#     columns:
-#       - name: sale_day
-#         description: "sale day"
-#         tests:
-#           - not_null
-#           - unique
-#           - date_later_than_today:
-#               column_name: sale_day
-#       - name: total_sales
-#         description: "total sales quantity"
-#         tests:
-#           - not_null
-#           - value_less_than_zero:
-#               column_name: total_sales
-#       - name: total_items_sold
-#         description: "total items sold by day"
-#         tests:
-#           - not_null
-#           - value_less_than_zero:
-#               column_name: total_items_sold
-#       - name: total_revenue
-#         description: "total revenue amount"
-#         tests:
-#           - not_null
-#           - value_less_than_zero:
-#               column_name: total_revenue
+models:
+  - name: stg_customers
+    description: "Cleaning customers data"
+    columns:
+      - name: customer_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+          - id_correct_format:
+              column_name: customer_id
+      - name: customer_name
+        description: "customer first name"
+        tests:
+          - not_null
+      - name: customer_email
+        description: "customer email"
+        tests:
+          - not_null
+          - unique
+      - name: customer_address
+        description: "customer adress"
+        tests:
+          - not_null
+      - name: registration_date
+        description: "customer registration date"
+        tests:
+          - not_null
+      - name: customer_segment
+        description: "customer segment"
+        tests:
+          - not_null
