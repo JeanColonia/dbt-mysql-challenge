@@ -10,7 +10,7 @@ SELECT
     TRIM(name) as product_name, 
     TRIM(description) as product_description, 
     TRIM(category) as product_category, 
-    ROUND(price, 2) as product_price, 
+    ROUND((CASE WHEN price < 0 THEN 0 ELSE price END),2) as product_price, 
     UCASE(TRIM(sku)) as product_sku 
 FROM raw_products 
 WHERE product_id 
