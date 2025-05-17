@@ -44,3 +44,31 @@ models:
         description: "customer segment"
         tests:
           - not_null
+  - name: stg_products
+    columns:
+      - name: product_id
+        description: "product primary key"
+        tests:
+          - not_null
+      - name: product_name
+        description: "product name"
+        tests:
+          - not_null
+      - name: product_description
+        description: "product description"
+        tests:
+          - not_null
+      - name: product_category
+        description: "product category"
+        tests:
+          - not_null
+      - name: product_price
+        description: "product price"
+        tests:
+          - not_null
+          - value_less_than_zero:
+              column_name: product_price
+      - name: product_sku
+        description: "product sku"
+        tests:
+          - not_null
