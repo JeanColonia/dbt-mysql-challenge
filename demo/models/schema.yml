@@ -72,3 +72,27 @@ models:
         description: "product sku"
         tests:
           - not_null
+  - name: stg_orders
+    columns:
+      - name: order_id
+        description: "order primary key"
+        tests:
+          - not_null
+      - name: customer_id
+        description: "customer id foreing key" 
+        tests:
+          - not_null
+      - name: order_date
+        description: "order date"
+        tests:
+          - not_null
+          - date_later_than_today:
+              column_name: order_date
+      - name: order_status
+        description: "order status"
+        tests:
+          - not_null
+      - name: payment_method
+        description: "payment method"
+        tests:
+          - not_null
