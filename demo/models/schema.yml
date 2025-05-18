@@ -23,6 +23,7 @@ models:
           - not_null
           - id_correct_format:
               column_name: customer_id
+          - dbt_utils.not_empty_string
       - name: customer_name
         description: "customer first name"
         tests:
