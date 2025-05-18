@@ -124,3 +124,25 @@ models:
           - not_null
           - value_less_than_zero:
               column_name: quantity
+  - name: stg_web_events
+    columns:
+      - name: web_session_id
+        description: "web session id"
+        tests:
+          - not_null
+      - name: customer_id
+        description: "session customer id" 
+        tests:
+          - not_null
+      - name: web_session_date
+        description: "web session date"
+        tests:
+          - not_null
+      - name: web_event_type
+        description: "web event type"
+        tests:
+          - not_null
+      - name: web_url
+        description: "web url"
+        tests:
+          - not_null
