@@ -21,6 +21,8 @@ models:
         tests:
           - unique
           - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
           - id_correct_format:
               column_name: customer_id
           - dbt_utils.not_empty_string
