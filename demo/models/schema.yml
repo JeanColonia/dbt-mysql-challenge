@@ -96,3 +96,25 @@ models:
         description: "payment method"
         tests:
           - not_null
+  - name: stg_order_items
+    columns:
+      - name: order_id
+        description: "order id foreing key"
+        tests:
+          - not_null
+      - name: product_id
+        description: "product id foreing key" 
+        tests:
+          - not_null
+      - name: quantity
+        description: "order item quantity"
+        tests:
+          - not_null
+      - name: unit_price
+        description: "order item unit price"
+        tests:
+          - not_null
+      - name: discount
+        description: "order item discount"
+        tests:
+          - not_null
