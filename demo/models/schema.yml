@@ -110,11 +110,17 @@ models:
         description: "order item quantity"
         tests:
           - not_null
+          - value_less_than_zero:
+              column_name: quantity
       - name: unit_price
         description: "order item unit price"
         tests:
           - not_null
+          - value_less_than_zero:
+              column_name: quantity
       - name: discount
         description: "order item discount"
         tests:
           - not_null
+          - value_less_than_zero:
+              column_name: quantity
