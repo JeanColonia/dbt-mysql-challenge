@@ -330,3 +330,35 @@ models:
           - not_null
           - value_less_than_zero:
               column_name: total_number_of_orders
+  - name: agg_product_sales_by_category
+    columns:
+      - name: product_category
+        description: "product category"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Apparel','Home Goods','Books','Electronics', 'No category']
+      - name: total_products
+        description: "total products" 
+        tests:
+          - not_null
+          - value_less_than_zero:
+              column_name: total_products
+      - name: total_amount
+        description: "total amount"
+        tests:
+          - not_null
+          - value_less_than_zero:
+              column_name: total_amount
+      - name: total_orders
+        description: "total orders"
+        tests:
+          - not_null
+          - value_less_than_zero:
+              column_name: total_orders
+      - name: total_unique_customers
+        description: "total unique customers"
+        tests:
+          - not_null
+          - value_less_than_zero:
+              column_name: total_unique_customers
