@@ -362,3 +362,41 @@ models:
           - not_null
           - value_less_than_zero:
               column_name: total_unique_customers
+  - name: agg_daily_order_summary
+    columns:
+      - name: order_day
+        description: "order day"
+        tests:
+          - not_null
+          - date_later_than_today:
+              column_name: order_day
+      - name: total_number_of_orders
+        description: "total number of orders" 
+        tests:
+          - not_null
+          - value_less_than_zero:
+              column_name: total_number_of_orders
+      - name: total_revenue
+        description: "total revenue"
+        tests:
+          - not_null
+          - value_less_than_zero:
+              column_name: total_revenue
+      - name: avg_orders_value
+        description: "avg orders value"
+        tests:
+          - not_null
+          - value_less_than_zero:
+              column_name: avg_orders_value
+      - name: total_unique_customers
+        description: "total unique customers"
+        tests:
+          - not_null
+          - value_less_than_zero:
+              column_name: total_unique_customers
+      - name: total_customers
+        description: "total customers"
+        tests:
+          - not_null
+          - value_less_than_zero:
+              column_name: total_customers
