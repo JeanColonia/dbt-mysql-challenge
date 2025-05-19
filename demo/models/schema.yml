@@ -1,7 +1,7 @@
 
 version: 2
 
-# Changing working with sources (currently using 'ref' keyword)
+# Changing  sources for reference (currently using 'ref' keyword)
 # sources:
 #   - name: dbt-demo-db
 #     schema: dbt_demo_db
@@ -203,6 +203,44 @@ models:
           - not_null
       - name: product_sku
         description: "product sku"
+        tests:
+          - not_null
+      - name: load_date
+        description: "load date"
+        tests:
+          - not_null
+  - name: fct_orders
+    columns:
+      - name: order_id
+        description: "order id"
+        tests:
+          - not_null
+      - name: customer_id
+        description: "customer id " 
+        tests:
+          - not_null
+      - name: product_id
+        description: "product id"
+        tests:
+          - not_null
+      - name: quantity
+        description: "quantity"
+        tests:
+          - not_null
+      - name: total_amout
+        description: "total amout"
+        tests:
+          - not_null
+      - name: order_date
+        description: "order date"
+        tests:
+          - not_null
+      - name: order_status
+        description: "order status"
+        tests:
+          - not_null
+      - name: payment_method
+        description: "payment method"
         tests:
           - not_null
       - name: load_date
