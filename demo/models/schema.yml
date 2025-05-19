@@ -260,6 +260,8 @@ models:
         description: "customer id " 
         tests:
           - not_null
+          - id_correct_format:
+              column_name: customer_id
       - name: product_id
         description: "product id"
         tests:
@@ -268,22 +270,32 @@ models:
         description: "quantity"
         tests:
           - not_null
+          - value_less_than_zero:
+              column_name: quantity
       - name: total_amout
         description: "total amout"
         tests:
           - not_null
+          - value_less_than_zero:
+              column_name: total_amout
       - name: order_date
         description: "order date"
         tests:
           - not_null
+          - date_later_than_today:
+              column_name: order_date
       - name: order_status
         description: "order status"
         tests:
           - not_null
+          - accepted_values:
+              values: ['SHIPPED', 'PENDING','DELIVERED','PROCESSING','CANCELLED']
       - name: payment_method
         description: "payment method"
         tests:
           - not_null
+          - accepted_values:
+              values: ['Credit Card','PayPal','Bank Transfer']
       - name: load_date
         description: "load date"
         tests:
