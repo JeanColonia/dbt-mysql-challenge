@@ -69,6 +69,8 @@ models:
         description: "product category"
         tests:
           - not_null
+          - accepted_values:
+              values: ['Apparel','Home Goods','Books','Electronics', 'No category']
       - name: product_price
         description: "product price"
         tests:
