@@ -20,3 +20,5 @@ NOT IN (
         GROUP BY name, email, address 
         HAVING COUNT(*) > 1
        )
+AND
+    {{is_valid_mail_format('email')}}
