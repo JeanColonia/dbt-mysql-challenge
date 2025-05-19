@@ -43,10 +43,14 @@ models:
         description: "customer registration date"
         tests:
           - not_null
+          - date_later_than_today:
+              column_name: registration_date
       - name: customer_segment
         description: "customer segment"
         tests:
           - not_null
+          - accepted_values:
+              values: ['A', 'B', 'C']
   - name: stg_products
     columns:
       - name: product_id
