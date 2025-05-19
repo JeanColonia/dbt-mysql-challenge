@@ -149,3 +149,33 @@ models:
         description: "web url"
         tests:
           - not_null
+  - name: dim_customers
+    columns:
+      - name: customer_id
+        description: "customer id"
+        tests:
+          - not_null
+      - name: customer_name
+        description: "customer name" 
+        tests:
+          - not_null
+      - name: customer_email
+        description: "customer email"
+        tests:
+          - not_null
+      - name: customer_address
+        description: "customer address"
+        tests:
+          - not_null
+      - name: registration_date
+        description: "registration date"
+        tests:
+          - not_null
+      - name: customer_segment
+        description: "customer segment"
+        tests:
+          - not_null
+      - name: load_timestamp
+        description: "load timestamp"
+        tests:
+          - not_null
