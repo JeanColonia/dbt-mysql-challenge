@@ -127,6 +127,11 @@ models:
         description: "product id foreing key" 
         tests:
           - not_null
+          - relationships:
+              to: ref('stg_products')
+              field: product_id
+              config: 
+                severity: warn
       - name: quantity
         description: "order item quantity"
         tests:
