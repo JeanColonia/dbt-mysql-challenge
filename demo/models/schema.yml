@@ -400,3 +400,27 @@ models:
           - not_null
           - value_less_than_zero:
               column_name: total_customers
+  - name: agg_customer_classification_by_spent
+    columns:
+      - name: customer_name
+        description: "customer name"
+        tests:
+          - not_null
+      - name: customer_classification
+        description: "customer classification" 
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Standard', 'Silver', 'Gold', 'Premium', 'Inactive'] 
+      - name: year
+        description: "year"
+        tests:
+          - not_null
+          - value_less_than_zero:
+              column_name: year
+      - name: total_sales_by_year
+        description: "total_sales_by_year"
+        tests:
+          - not_null
+          - value_less_than_zero:
+              column_name: total_sales_by_year
