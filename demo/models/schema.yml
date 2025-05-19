@@ -185,6 +185,9 @@ models:
         description: "customer id"
         tests:
           - not_null
+          - unique
+          - id_correct_format:
+              column_name: customer_id
       - name: customer_name
         description: "customer name" 
         tests:
@@ -201,10 +204,14 @@ models:
         description: "registration date"
         tests:
           - not_null
+          - date_later_than_today:
+              column_name: registration_date
       - name: customer_segment
         description: "customer segment"
         tests:
           - not_null
+          - accepted_values:
+              values: ['A', 'B', 'C']
       - name: load_timestamp
         description: "load timestamp"
         tests:
