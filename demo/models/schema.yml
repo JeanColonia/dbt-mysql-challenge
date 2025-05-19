@@ -234,10 +234,14 @@ models:
         description: "product category"
         tests:
           - not_null
+          - accepted_values:
+              values: ['Apparel','Home Goods','Books','Electronics', 'No category']
       - name: product_price
         description: "product price "
         tests:
           - not_null
+          - value_less_than_zero:
+              column_name: product_price
       - name: product_sku
         description: "product sku"
         tests:
