@@ -306,10 +306,14 @@ models:
         description: "total number of orders"
         tests:
           - not_null
+          - value_less_than_zero:
+              column_name: total_number_of_orders
       - name: total_sales_by_year
         description: "total sales by year" 
         tests:
           - not_null
+          - value_less_than_zero:
+              column_name: total_number_of_orders
       - name: year
         description: "year value"
         tests:
@@ -318,7 +322,11 @@ models:
         description: "number of total unique customers"
         tests:
           - not_null
+          - value_less_than_zero:
+              column_name: total_number_of_orders
       - name: number_of_total_customers
         description: "number of total customers"
         tests:
           - not_null
+          - value_less_than_zero:
+              column_name: total_number_of_orders
