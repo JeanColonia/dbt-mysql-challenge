@@ -160,10 +160,17 @@ models:
         description: "session customer id" 
         tests:
           - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
+              config:
+                severity: warn
       - name: web_session_date
         description: "web session date"
         tests:
           - not_null
+          - date_later_than_today:
+              column_name: web_session_date
       - name: web_event_type
         description: "web event type"
         tests:
