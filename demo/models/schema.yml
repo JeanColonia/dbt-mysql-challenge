@@ -179,3 +179,33 @@ models:
         description: "load timestamp"
         tests:
           - not_null
+  - name: dim_products
+    columns:
+      - name: product_id
+        description: "product id"
+        tests:
+          - not_null
+      - name: product_name
+        description: "product name" 
+        tests:
+          - not_null
+      - name: product_description
+        description: "product description"
+        tests:
+          - not_null
+      - name: product_category
+        description: "product category"
+        tests:
+          - not_null
+      - name: product_price
+        description: "product price "
+        tests:
+          - not_null
+      - name: product_sku
+        description: "product sku"
+        tests:
+          - not_null
+      - name: load_date
+        description: "load date"
+        tests:
+          - not_null
