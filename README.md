@@ -9,15 +9,24 @@ Este proyecto utiliza **Python**, **dbt** y **MySQL** para realizar análisis de
 
 ```plaintext
 dbt-mysql-demo/
-├── models/                      # Modelos de dbt
-│   ├── schema.yml               # Definición de fuentes, modelos y pruebas
-│   ├── raw/                     # Datos sin transformar
-│   ├── staging/                 # Modelos intermedios (limpieza y normalización)
-│   └── marts/                   # Modelos finales (listas para análisis o BI)
+├── models/                     # Modelos de dbt
+│   ├── schema.yml              # Definición de fuentes, modelos y pruebas
+│   ├── bronze/                 # Capa con datos sin transformar  (datos crudos)
+│
+│   ├── silver/                 # Capa 
+│          └── staging/         # Modelos intermedios (stg_) Limpieza de datos, deduplicados, formatos, etc.
+│          └── dimensions/      #  # Modelos dim_ según Kimball (califican y categorizan los datos de las tablas de hechos, id artificial - surrogate key)
+│
+│   └── gold/                   # Capa 
+│
+│          └── facts/           # Modelos con métricas cuantitativas o medidas de los eventos de negocio
+│          └── aggregates/      # Modelos con resúmenes precalculados de los datos de las tablas de hechos
 │
 ├── seeds/                      # Datos estáticos (archivos CSV)
 │
-├── tests/                      # Pruebas adicionales definidas por el usuario
+├── tests/                      # Pruebas genericas y unitarias
+│   └── generic/                # Pruebas genericas aplicadas a diferentes modelos.
+│   └── unit/                   # Pruebas unitarias aplicadas a modelos especificos.
 │
 ├── macros/                     # Funciones personalizadas reutilizables
 │   └── tests/                  # Macros para pruebas personalizadas
@@ -27,6 +36,7 @@ dbt-mysql-demo/
 │   └── img/                    # Imágenes de `dbt docs` o visualizaciones
 │
 ├── dbt_project.yml             # Configuración principal del proyecto dbt
+├── packages.yml                # Configuración de paquetes adicionales (dbt_utils, etc)
 ├── bd-script.sql               # Script SQL auxiliar para desarrollo
 └── README.md                   # Documentación del proyecto (este archivo)
 

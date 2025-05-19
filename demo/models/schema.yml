@@ -247,3 +247,25 @@ models:
         description: "load date"
         tests:
           - not_null
+  - name: agg_sales_by_year
+    columns:
+      - name: total_number_of_orders
+        description: "total number of orders"
+        tests:
+          - not_null
+      - name: total_sales_by_year
+        description: "total sales by year" 
+        tests:
+          - not_null
+      - name: year
+        description: "year value"
+        tests:
+          - not_null
+      - name: number_of_total_unique_customers
+        description: "number of total unique customers"
+        tests:
+          - not_null
+      - name: number_of_total_customers
+        description: "number of total customers"
+        tests:
+          - not_null
