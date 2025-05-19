@@ -87,10 +87,18 @@ models:
         description: "order primary key"
         tests:
           - not_null
+          - unique
       - name: customer_id
         description: "customer id foreing key" 
         tests:
           - not_null
+          - id_correct_format:
+              column_name: customer_id
+          - relationships: 
+              to: ref('stg_customers')
+              field: customer_id
+              config:
+                severity: warn
       - name: order_date
         description: "order date"
         tests:
@@ -101,10 +109,14 @@ models:
         description: "order status"
         tests:
           - not_null
+          - accepted_values:
+              values: ['SHIPPED', 'PENDING','DELIVERED','PROCESSING','CANCELLED']
       - name: payment_method
         description: "payment method"
         tests:
           - not_null
+          - accepted_values:
+              values: ['Credit Card','PayPal','Bank Transfer']
   - name: stg_order_items
     columns:
       - name: order_id
